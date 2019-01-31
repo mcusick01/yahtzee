@@ -5,7 +5,7 @@ public class MainTest {
 	/*Die d = new Die();
 	d.roll();
 	*/
-		
+	
 	CupOfDice cd = new CupOfDice(); 
 	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
 	cd.rollCup(testBoolean); 
