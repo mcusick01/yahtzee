@@ -7,7 +7,7 @@ public class MainTest {
 	*/
 		
 	CupOfDice cd = new CupOfDice(); 
-	boolean[] testBoolean = {true, true, true, true, true, false};
+	boolean[] testBoolean = {true, true, true, true, true};
 	cd.rollCup(testBoolean); 
 	
 	System.out.println(cd.getCup());

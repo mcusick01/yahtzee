@@ -2,6 +2,15 @@
 public class CupOfDice {
 	private Die[] dice = new Die[5]; 
 	
+	
+	//constructor to fill array with Die objects
+	CupOfDice() {
+		for(int i = 0; i<dice.length-1; i++)
+		{
+			dice[i] = new Die();
+		}
+	}
+	
 	public void rollCup(boolean[] hold) 
 	{
 		int i; 
@@ -15,12 +24,12 @@ public class CupOfDice {
 	}
 	
 	public int getCup() 
-	{
+	{		
 		int i; 
 		for (i = 0; i < dice.length - 1; i++)
 		{
 			return dice[i].getFace();
 		}
-		return 0;
+		return 0; //failed
 	}
 }
