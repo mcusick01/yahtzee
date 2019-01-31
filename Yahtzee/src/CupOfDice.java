@@ -5,7 +5,7 @@ public class CupOfDice {
 	
 	//constructor to fill array with Die objects
 	CupOfDice() {
-		for(int i = 0; i<dice.length-1; i++)
+		for(int i = 0; i<dice.length; i++)
 		{
 			dice[i] = new Die();
 		}
@@ -14,22 +14,28 @@ public class CupOfDice {
 	public void rollCup(boolean[] hold) 
 	{
 		int i; 
-		for (i = 0; i < hold.length - 1; i++)
+		for (i = 0; i < hold.length; i++)
 		{
-			if (hold[i] == true)
+			if (hold[i] == false)
 			{
 				dice[i].roll();
 			}
 		}
 	}
 	
-	public int getCup() 
+	public void getCup() 
 	{		
-		int i; 
-		for (i = 0; i < dice.length - 1; i++)
+		
+		for(int i=0; i<dice.length; i++)
 		{
-			return dice[i].getFace();
+			System.out.print(dice[i].getFace() + " ");
 		}
-		return 0; //failed
+		
+//		int i; 
+//		for (i = 0; i < dice.length - 1; i++)
+//		{
+//			return dice[i].getFace();
+//		}
+//		return 0; //failed
 	}
 }

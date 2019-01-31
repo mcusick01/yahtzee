@@ -7,10 +7,12 @@ public class MainTest {
 	*/
 		
 	CupOfDice cd = new CupOfDice(); 
-	boolean[] testBoolean = {true, true, true, true, true};
+	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
 	cd.rollCup(testBoolean); 
 	
-	System.out.println(cd.getCup());
+	cd.getCup();
+	
+//	System.out.println(cd.getCup());
 	
 	//System.out.println(d.getFace());
 	
