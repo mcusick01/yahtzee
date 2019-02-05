@@ -13,7 +13,11 @@ public class ScoreCard {
 	private int four_kind;
 	private int chance;
 	
+	//to handle yahtzee bonus -- increment then multiply by 100
+	private int yahtzee_bonus;
+	
 	//bonuses, full house, yahtzee, and straights are all set values
+	
 	
 	//variables to hold round totals
 	private int round1;
@@ -38,7 +42,9 @@ public class ScoreCard {
 		 finalscore = 0;
 	}
 	
-	public boolean verify(ChoiceEnum choice, Die[] d) {
+	
+	//this method handles adding the total of the die faces
+	public boolean verifyAndCalculateScore(ChoiceEnum choice, Die[] d) {
 		
 		if(choice == choice.ONES) {
 			for(int i=0; i<d.length; i++)
@@ -49,7 +55,67 @@ public class ScoreCard {
 			}
 			System.out.println("Ones score=" + ones);
 		}
+		else if(choice == choice.TWOS) {
+			for(int i=0; i<d.length; i++)
+			{
+				if(d[i].getFace() == 2){
+					twos += 2;
+				}
+			}
+			System.out.println("Twos score=" + twos);
+		}
+		else if(choice == choice.THREES) {
+			for(int i=0; i<d.length; i++)
+			{
+				if(d[i].getFace() == 3){
+					threes += 3;
+				}
+			}
+			System.out.println("Threes score=" + threes);
+		}
+		else if(choice == choice.FOURS) {
+			for(int i=0; i<d.length; i++)
+			{
+				if(d[i].getFace() == 4){
+					fours += 4;
+				}
+			}
+			System.out.println("Fours score=" + fours);
+		}
+		else if(choice == choice.FIVES) {
+			for(int i=0; i<d.length; i++)
+			{
+				if(d[i].getFace() == 5){
+					fives += 5;
+				}
+			}
+			System.out.println("Fives score=" + fives);
+		}
+		else if(choice == choice.SIXES) {
+			for(int i=0; i<d.length; i++)
+			{
+				if(d[i].getFace() == 6){
+					sixes += 6;
+				}
+			}
+			System.out.println("Sixes score=" + sixes);
+		}
+		else if(choice == choice.THREE_KIND) {
+			for(int i=0; i<d.length; i++)
+			{
+				//need to check for three of a kind conditions
+				//do this by sorting? small -> large values
+				//assign a pointer to first value, check next two values = val at pointer?
+				//if fails, move pointer up until it points to length-2
+				
+				//if valid, do this
+				three_kind += d[i].getFace();
+			}
+			System.out.println("Three of a kind score=" + three_kind);
+		}
 		
 		return false;		
 	}
+	
+	
 }

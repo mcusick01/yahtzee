@@ -6,20 +6,21 @@ public class MainTest {
 	
 	
 	CupOfDice cd = new CupOfDice(); 
-	boolean[] testBoolean = {true, false, false, false, false}; //true means do not roll the die
+	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
 	cd.rollCup(testBoolean); 
 	
 	cd.getCup();
+	System.out.println();
 	
 	//	System.out.println(cd.getCup());
 	
 	//System.out.println(d.getFace());
 	
-	ChoiceEnum choice = ChoiceEnum.ONES;
-	System.out.println(choice);
+	ChoiceEnum choice = ChoiceEnum.FIVES;
+	System.out.println("Hard coded choice=" + choice);
 	
 	ScoreCard s = new ScoreCard();
-	s.verify(choice, cd.returnCup());
+	s.verifyAndCalculateScore(choice, cd.returnCup());
 	
 	}
 	
