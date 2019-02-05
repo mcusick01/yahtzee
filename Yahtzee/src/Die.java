@@ -8,7 +8,7 @@ public class Die {
 	
 	public void roll() 
 	{
-		face = r.nextInt(6) + 1;
+		face = r.nextInt(6) + 1; // fixed functionality to roll 1-6 instead of 1-5
 	}
 	
 	public int getFace()
