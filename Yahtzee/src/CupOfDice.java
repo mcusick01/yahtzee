@@ -11,6 +11,12 @@ public class CupOfDice {
 		}
 	}
 	
+	//to use in ScoreCard verify
+	public Die[] returnCup()
+	{
+		return dice;
+	}
+	
 	public void rollCup(boolean[] hold) 
 	{
 		int i; 
@@ -20,6 +26,7 @@ public class CupOfDice {
 			{
 				dice[i].roll();
 			}
+			
 		}
 	}
 	

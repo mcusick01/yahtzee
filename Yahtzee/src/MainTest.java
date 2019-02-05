@@ -1,12 +1,12 @@
 public class MainTest {
 	public static void main( String[] args ) {
 		
-	/*Die d = new Die();
+	Die d = new Die();
 	d.roll();
-	*/
+	
 	
 	CupOfDice cd = new CupOfDice(); 
-	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
+	boolean[] testBoolean = {true, false, false, false, false}; //true means do not roll the die
 	cd.rollCup(testBoolean); 
 	
 	cd.getCup();
@@ -18,5 +18,10 @@ public class MainTest {
 	ChoiceEnum choice = ChoiceEnum.ONES;
 	System.out.println(choice);
 	
+	ScoreCard s = new ScoreCard();
+	s.verify(choice, cd.returnCup());
+	
 	}
+	
+	
 }
