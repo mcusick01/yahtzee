@@ -1,4 +1,3 @@
-
 public class MainTest {
 	public static void main( String[] args ) {
 		
@@ -12,9 +11,12 @@ public class MainTest {
 	
 	cd.getCup();
 	
-//	System.out.println(cd.getCup());
+	//	System.out.println(cd.getCup());
 	
 	//System.out.println(d.getFace());
+	
+	ChoiceEnum choice = ChoiceEnum.ONES;
+	System.out.println(choice);
 	
 	}
 }
