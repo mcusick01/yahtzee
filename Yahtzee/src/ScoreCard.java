@@ -1,5 +1,11 @@
 import java.util.Arrays;
 
+/*
+ * TO DO:
+ * > ask if player wants to write score as 0 when appropriate
+ * > array of round scores?
+ */
+
 public class ScoreCard {
 
 	//variables to hold score values
@@ -43,6 +49,7 @@ public class ScoreCard {
 		 round6 = 0;
 		 finalscore = 0;
 		 
+		 //initialize all score values as -1 because 0 is a valid score
 		 scores = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1};
 	}
 	
@@ -121,6 +128,7 @@ public class ScoreCard {
 //		return false;		
 //	}
 	
+	//verifies die faces match chosen score type and calculates the sum of appropriate faces
 	public void verifyAndCalculateScore(ChoiceEnum choice, Die[] d)
 	{
 		if(choice == choice.ONES) {
