@@ -8,7 +8,7 @@ public class Die {
 	
 	public void roll() 
 	{
-		face = r.nextInt(2) + 1;
+		face = r.nextInt(4) + 1;
 	}
 	
 	public int getFace()

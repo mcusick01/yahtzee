@@ -16,11 +16,11 @@ public class MainTest {
 	
 	//System.out.println(d.getFace());
 	
-	ChoiceEnum choice = ChoiceEnum.FOUR_KIND;
+	ChoiceEnum choice = ChoiceEnum.ONES;
 	System.out.println("Hard coded choice=" + choice);
 	
-	ScoreCard s = new ScoreCard();
-	s.verifyAndCalculateScore(choice, cd.returnCup());
+	ScorecardMaster s = new ScorecardMaster();
+	s.verify(choice, cd.returnCup());
 	
 	}
 	

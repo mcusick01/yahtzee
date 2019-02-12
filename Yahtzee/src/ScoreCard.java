@@ -187,63 +187,105 @@ public class ScoreCard {
 		}
 		else if(choice == choice.THREE_KIND)
 		{
-			int tmp[] = new int[d.length];
-			for(int i = 0; i < tmp.length; i++)
-			{
-				tmp[i] = d[i].getFace();
-			}
-			boolean hasThree = false; 
-			Arrays.sort(tmp);
-			for(int i = 1; i < tmp.length - 1; i++)
-			{
-			    if(tmp[i-1] == tmp[i] && tmp[i] == tmp[i+1]) 
-			    {
-			        hasThree = true;
-			        System.out.println("Found three of a kind");
-			        break;
-			        
-			    }
-			}
+			int counter = 0; 
 			scores[ChoiceEnum.THREE_KIND.ordinal()] = 0;
 			for(int i = 0; i < d.length; i++)
 			{
-				 scores[ChoiceEnum.THREE_KIND.ordinal()] += d[i].getFace();
+				for(int j = 0; j < d.length; j++)
+				{
+					if(d[j].getFace() == d[i].getFace())
+					{
+						counter++;
+					}
+				}
+				if (counter >= 3)
+				{
+					scores[ChoiceEnum.THREE_KIND.ordinal()] += d[i].getFace();
+					System.out.println(d[i].getFace());
+				}
 			}
-			System.out.println("Score: " + scores[ChoiceEnum.THREE_KIND.ordinal()]);
+			System.out.println("Three of a kind score: " + scores[ChoiceEnum.THREE_KIND.ordinal()]);
 		}
 		else if(choice == choice.FOUR_KIND)
 		{
-			int tmp[] = new int[d.length];
-			for(int i = 0; i < tmp.length; i++)
+			int counter = 0; 
+			scores[ChoiceEnum.FOUR_KIND.ordinal()] = 0;
+			for(int i = 0; i < d.length; i++)
 			{
-				tmp[i] = d[i].getFace();
-			}
-			boolean hasFour = false; 
-			Arrays.sort(tmp);
-			for(int i = 1; i < tmp.length - 1; i++)
-			{
-				// need to check logic of this if statement 
-			    if((tmp[i-1] == tmp[i] && tmp[i] == tmp[i+1] && tmp[i] == tmp[i +2]) || (tmp[i-2] == tmp[i] && tmp[i-1] == tmp[i] && tmp[i] == tmp[i+1])) 
-			    {
-			        hasFour = true;
-
-			    }
-			    else
-			    {
-			    		System.out.println("Did not find four of a kind");
-			    }
-			}
-			if(hasFour ==true)
-			{
-				System.out.println("Found four of a kind");
-				scores[ChoiceEnum.FOUR_KIND.ordinal()] = 0;
 				for(int j = 0; j < d.length; j++)
 				{
-					scores[ChoiceEnum.FOUR_KIND.ordinal()] += d[j].getFace();
+					if(d[j].getFace() == d[i].getFace())
+					{
+						counter++;
+					}
 				}
-				System.out.println("Score: " + scores[ChoiceEnum.FOUR_KIND.ordinal()]);
+				if (counter >= 4)
+				{
+					scores[ChoiceEnum.FOUR_KIND.ordinal()] += d[i].getFace();
+					System.out.println(d[i].getFace());
+				}
 			}
+			System.out.println("Four of a kind score: " + scores[ChoiceEnum.FOUR_KIND.ordinal()]);
 		}
+//		else if(choice == choice.THREE_KIND)
+//		{
+//			int tmp[] = new int[d.length];
+//			for(int i = 0; i < tmp.length; i++)
+//			{
+//				tmp[i] = d[i].getFace();
+//			}
+//			boolean hasThree = false; 
+//			Arrays.sort(tmp);
+//			for(int i = 1; i < tmp.length - 1; i++)
+//			{
+//			    if(tmp[i-1] == tmp[i] && tmp[i] == tmp[i+1]) 
+//			    {
+//			        hasThree = true;
+//			        System.out.println("Found three of a kind");
+//			        break;
+//			        
+//			    }
+//			}
+//			scores[ChoiceEnum.THREE_KIND.ordinal()] = 0;
+//			for(int i = 0; i < d.length; i++)
+//			{
+//				 scores[ChoiceEnum.THREE_KIND.ordinal()] += d[i].getFace();
+//			}
+//			System.out.println("Score: " + scores[ChoiceEnum.THREE_KIND.ordinal()]);
+//		}
+//		else if(choice == choice.FOUR_KIND)
+//		{
+//			int tmp[] = new int[d.length];
+//			for(int i = 0; i < tmp.length; i++)
+//			{
+//				tmp[i] = d[i].getFace();
+//			}
+//			boolean hasFour = false; 
+//			Arrays.sort(tmp);
+//			for(int i = 1; i < tmp.length - 1; i++)
+//			{
+//				// need to check logic of this if statement 
+//			    if((tmp[i-1] == tmp[i] && tmp[i] == tmp[i+1] && tmp[i] == tmp[i +2]) || (tmp[i-2] == tmp[i] && tmp[i-1] == tmp[i] && tmp[i] == tmp[i+1])) 
+//			    {
+//			        hasFour = true;
+//
+//			    }
+//			    else
+//			    {
+//			    		System.out.println("Did not find four of a kind");
+//			    }
+//			}
+//			if(hasFour ==true)
+//			{
+//				System.out.println("Found four of a kind");
+//				scores[ChoiceEnum.FOUR_KIND.ordinal()] = 0;
+//				for(int j = 0; j < d.length; j++)
+//				{
+//					scores[ChoiceEnum.FOUR_KIND.ordinal()] += d[j].getFace();
+//				}
+//				System.out.println("Score: " + scores[ChoiceEnum.FOUR_KIND.ordinal()]);
+//			}
+//		}
 	}
 	
 }
