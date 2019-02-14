@@ -16,7 +16,7 @@ public class MainTest {
 	
 	//System.out.println(d.getFace());
 	
-	ChoiceEnum choice = ChoiceEnum.ONES;
+	ChoiceEnum choice = ChoiceEnum.YAHTZEE;
 	System.out.println("Hard coded choice=" + choice);
 	
 	ScorecardMaster s = new ScorecardMaster();
