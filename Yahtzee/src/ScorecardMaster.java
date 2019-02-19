@@ -37,7 +37,7 @@ public class ScorecardMaster {
 		return tallyDice;
 	}
 	
-	public boolean verify(ChoiceEnum choice, Die[] d) 
+	public int verify(ChoiceEnum choice, Die[] d) 
 	{
 		int[] tally = countDice(d); // calling method to tally dice
 		System.out.print("Tally is: ");
@@ -205,14 +205,11 @@ public class ScorecardMaster {
 			
 			System.out.println("Yahtzee score: " + scores[ChoiceEnum.YAHTZEE.ordinal()]);
 		}
-		return false;
+		
+		//return the score that was written
+		return scores[choice.ordinal()];
 	}
 	
-//	public int calculate(int index, int val)
-//	{
-//		scores[index] += val;
-////		System.out.println("Three of a kind score: " + scores[ChoiceEnum.THREE_KIND.ordinal()]);
-//		return scores[index];
-//	}
+	
 	
 }
