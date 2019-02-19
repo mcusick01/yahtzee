@@ -141,6 +141,7 @@ public class ScorecardMaster {
 					}
 					else {
 						//set Three of a Kind score to 0 for now
+						//this process will change when Player class is implemented
 						scores[ChoiceEnum.THREE_KIND.ordinal()] = 0;
 					}
 				}
@@ -170,6 +171,7 @@ public class ScorecardMaster {
 					}
 					else {
 						//set Four of a Kind score to 0 for now
+						//this process will change when Player class is implemented
 						scores[ChoiceEnum.FOUR_KIND.ordinal()] = 0;
 					}
 				}
@@ -198,6 +200,7 @@ public class ScorecardMaster {
 				}
 				else {
 					//set Yahtzee score to 0 for now
+					//this process will change when Player class is implemented
 					scores[ChoiceEnum.YAHTZEE.ordinal()] = 0;
 				}
 			
@@ -219,7 +222,8 @@ public class ScorecardMaster {
 							scores[ChoiceEnum.FULL_HOUSE.ordinal()] = 25; 
 						}
 						else {
-							//set Four of a Kind score to 0 for now
+							//set Full House of a Kind score to 0 for now
+							//this process will change when Player class is implemented
 							scores[ChoiceEnum.FULL_HOUSE.ordinal()] = 0;
 						}
 					}
@@ -231,19 +235,22 @@ public class ScorecardMaster {
 		else if(choice == ChoiceEnum.SMALL_STRAIGHT) 
 		{
 			int counter = 0; 
-			//check if there is a Yahtzee
+			//Small straight is a sequence of 4 (1234, 2345, or 3456)
 			for(int i = 0; i < tally.length; i++)
 			{
 				if(tally[i] >= 1)
 				{
 					counter++;
 					System.out.println(counter);
+					//need at least 4 unique die (tally==1) to make a small straight
 					if(counter > 3)
 					{
 						scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 30; 
 					}
+					//if counter is not > 3 then keep looping through tally
 				}
 				else {
+					//this handles making sure the unique numbers are a valid sequence
 					counter = 0;
 					scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 0; 
 				}
@@ -255,9 +262,10 @@ public class ScorecardMaster {
 		else if(choice == ChoiceEnum.LARGE_STRAIGHT) 
 		{
 			int counter = 0; 
-			//check if there is a Yahtzee
+			//Large straight is a sequence of 5 (12345 or 23456)
 			for(int i = 0; i < tally.length; i++)
 			{
+				//need 5 unique die (tally==1) to make a lg straight
 				if(tally[i] == 1)
 				{
 					counter++;
@@ -266,6 +274,7 @@ public class ScorecardMaster {
 			}
 			if(counter == 5)
 			{
+				//there must be either no six or no one for the dice to be a valid sequence
 				if(tally[0] == 0 || tally[5] == 0)
 				{
 					scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 40; 
@@ -300,17 +309,16 @@ public class ScorecardMaster {
 	//print the score card
 	public void printCard() {
 		System.out.println("SCORE TYPE: \t\t SCORE:");
+		System.out.println("********************************");
 		for(ChoiceEnum c : ChoiceEnum.values()) {
 			if(scores[c.ordinal()] == -1) {
 				//don't print out -1s, just for aesthetics
 				System.out.printf("%-10s \t\t %-10s%n", c, " - ");
 			}
 			else {
-				System.out.printf("%-10s \t\t %-10d%n", c, scores[c.ordinal()]);
+				System.out.printf("%-10s \t\t  %-10d %n", c, scores[c.ordinal()]);
 			}
 		}
 	}
-	
-	
 	
 }
