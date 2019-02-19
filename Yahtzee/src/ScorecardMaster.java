@@ -245,8 +245,10 @@ public class ScorecardMaster {
 				}
 				else {
 					counter = 0;
+					scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 0; 
 				}
 			}
+			
 			
 			System.out.println("Small straight score: " + scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()]);
 		}

@@ -9,7 +9,7 @@ public class MainTest {
 //	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
 //	cd.rollCup(testBoolean); 
 	
-	int[] testArray = {1, 2, 3, 4, 5};
+	int[] testArray = {1, 2, 2, 3, 5};
 	cd.hardCodedRoll(testArray);
 	
 	cd.getCup();
@@ -19,7 +19,7 @@ public class MainTest {
 	
 	//System.out.println(d.getFace());
 	
-	ChoiceEnum choice = ChoiceEnum.LARGE_STRAIGHT;
+	ChoiceEnum choice = ChoiceEnum.SMALL_STRAIGHT;
 	System.out.println("Hard coded choice=" + choice);
 	
 	ScorecardMaster s = new ScorecardMaster();
