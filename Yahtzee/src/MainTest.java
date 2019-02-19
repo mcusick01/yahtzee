@@ -6,11 +6,11 @@ public class MainTest {
 	
 	
 	CupOfDice cd = new CupOfDice(); 
-//	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
-//	cd.rollCup(testBoolean); 
+	boolean[] testBoolean = {false, false, false, false, false}; //true means do not roll the die
+	cd.rollCup(testBoolean); 
 	
-	int[] testArray = {1, 2, 2, 3, 5};
-	cd.hardCodedRoll(testArray);
+//	int[] testArray = {1, 2, 2, 3, 5};
+//	cd.hardCodedRoll(testArray);
 	
 	cd.getCup();
 	System.out.println();
@@ -19,11 +19,12 @@ public class MainTest {
 	
 	//System.out.println(d.getFace());
 	
-	ChoiceEnum choice = ChoiceEnum.SMALL_STRAIGHT;
+	ChoiceEnum choice = ChoiceEnum.SIXES;
 	System.out.println("Hard coded choice=" + choice);
 	
 	ScorecardMaster s = new ScorecardMaster();
 	s.verify(choice, cd.returnCup());
+	s.printCard();
 	
 	}
 	

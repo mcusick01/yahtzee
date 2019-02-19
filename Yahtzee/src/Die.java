@@ -6,7 +6,7 @@ public class Die {
 	
 	public void roll() 
 	{
-		face = r.nextInt(5) + 1;
+		face = r.nextInt(6) + 1;
 	}
 	
 	public int getFace()

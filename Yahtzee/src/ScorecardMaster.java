@@ -280,9 +280,35 @@ public class ScorecardMaster {
 			
 			System.out.println("Large straight score: " + scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()]);
 		}
+		else if(choice == ChoiceEnum.CHANCE) {
+			if(scores[ChoiceEnum.CHANCE.ordinal()] == -1) {
+				
+				//get ready to set to actual score
+				scores[ChoiceEnum.CHANCE.ordinal()] = 0;
+				
+				for(int i=0; i<tally.length; i++) {
+					scores[ChoiceEnum.CHANCE.ordinal()] += tally[i] * (i+1); 	
+				}
+			}
+			System.out.println("Chance score: " + scores[ChoiceEnum.CHANCE.ordinal()]);
+		}
 		
 		//return the score that was written
 		return scores[choice.ordinal()];
+	}
+	
+	//print the score card
+	public void printCard() {
+		System.out.println("SCORE TYPE: \t\t SCORE:");
+		for(ChoiceEnum c : ChoiceEnum.values()) {
+			if(scores[c.ordinal()] == -1) {
+				//don't print out -1s, just for aesthetics
+				System.out.printf("%-10s \t\t %-10s%n", c, " - ");
+			}
+			else {
+				System.out.printf("%-10s \t\t %-10d%n", c, scores[c.ordinal()]);
+			}
+		}
 	}
 	
 	
