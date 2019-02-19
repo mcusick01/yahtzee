@@ -205,6 +205,79 @@ public class ScorecardMaster {
 			
 			System.out.println("Yahtzee score: " + scores[ChoiceEnum.YAHTZEE.ordinal()]);
 		}
+		else if(choice == choice.FULL_HOUSE)
+		{
+			//check if score is writeable
+			if(scores[ChoiceEnum.FULL_HOUSE.ordinal()] == -1)
+			{
+				for(int i = 0; i < tally.length; i++)
+				{
+					for(int j = 0; j < tally.length; j++)
+					{
+						if((tally[i] == 2 && tally[j] == 3) || (tally[i] == 3 && tally[j] == 2))
+						{
+							scores[ChoiceEnum.FULL_HOUSE.ordinal()] = 25; 
+						}
+						else {
+							//set Four of a Kind score to 0 for now
+							scores[ChoiceEnum.FULL_HOUSE.ordinal()] = 0;
+						}
+					}
+				}
+			}
+				
+			System.out.println("Found a full house: " + scores[ChoiceEnum.FULL_HOUSE.ordinal()]);
+		}
+		else if(choice == ChoiceEnum.SMALL_STRAIGHT) 
+		{
+			int counter = 0; 
+			//check if there is a Yahtzee
+			for(int i = 0; i < tally.length; i++)
+			{
+				if(tally[i] >= 1)
+				{
+					counter++;
+					System.out.println(counter);
+					if(counter > 3)
+					{
+						scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 30; 
+					}
+				}
+				else {
+					counter = 0;
+				}
+			}
+			
+			System.out.println("Small straight score: " + scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()]);
+		}
+		else if(choice == ChoiceEnum.LARGE_STRAIGHT) 
+		{
+			int counter = 0; 
+			//check if there is a Yahtzee
+			for(int i = 0; i < tally.length; i++)
+			{
+				if(tally[i] == 1)
+				{
+					counter++;
+					System.out.println(counter);
+				}
+			}
+			if(counter == 5)
+			{
+				if(tally[0] == 0 || tally[5] == 0)
+				{
+					scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 40; 
+				}
+				else {
+					scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 0;
+				}
+			}
+			else {
+				scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 0;
+			}
+			
+			System.out.println("Large straight score: " + scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()]);
+		}
 		
 		//return the score that was written
 		return scores[choice.ordinal()];

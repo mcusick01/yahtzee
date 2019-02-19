@@ -11,6 +11,14 @@ public class CupOfDice {
 		}
 	}
 	
+	public void hardCodedRoll(int[] cup)
+	{
+		int i; 
+		for (i = 0; i < cup.length; i++)
+		{
+			dice[i].setFace(cup[i]);
+		}
+	}
 	//to use in ScoreCard verify
 	public Die[] returnCup()
 	{
