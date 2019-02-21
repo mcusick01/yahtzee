@@ -26,6 +26,7 @@ public class MainTest {
 	ChoiceEnum choice = ChoiceEnum.ONES;
 	System.out.println("Hard coded choice=" + choice);
 	
+	// OPTIONAL - let the user decide a score type
 //	System.out.print("What score will you take? ");
 //	int userChoice = input.nextInt();
 //	
