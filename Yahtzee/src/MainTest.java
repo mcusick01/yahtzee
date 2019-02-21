@@ -1,5 +1,9 @@
+import java.util.Scanner;
+
 public class MainTest {
 	public static void main( String[] args ) {
+		
+	Scanner input = new Scanner(System.in);
 		
 	Die d = new Die();
 	d.roll();
@@ -19,8 +23,16 @@ public class MainTest {
 	
 	//System.out.println(d.getFace());
 	
-	ChoiceEnum choice = ChoiceEnum.YAHTZEE;
+	ChoiceEnum choice = ChoiceEnum.ONES;
 	System.out.println("Hard coded choice=" + choice);
+	
+//	System.out.print("What score will you take? ");
+//	int userChoice = input.nextInt();
+//	
+//	ChoiceEnum choice = null;
+//	if(userChoice == 1) {
+//		choice = ChoiceEnum.ONES;
+//	}
 	
 	ScorecardMaster s = new ScorecardMaster();
 	s.verify(choice, cd.returnCup());
