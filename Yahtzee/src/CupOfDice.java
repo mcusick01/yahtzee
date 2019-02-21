@@ -35,6 +35,7 @@ public class CupOfDice {
 				dice[i].roll();
 			}
 			
+			System.out.println("Die " + (i+1) + ": " + dice[i].getFace());
 		}
 	}
 	

@@ -58,6 +58,9 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.ONES.ordinal()] = 0;
 				}
 			}
+			else {
+				System.out.println("You already have a score for ones. Choose another score to write.");
+			}
 			System.out.println("Ones score: " + scores[ChoiceEnum.ONES.ordinal()]);
 		}
 		else if(choice == choice.TWOS) {
@@ -213,6 +216,7 @@ public class ScorecardMaster {
 			//check if score is writeable
 			if(scores[ChoiceEnum.FULL_HOUSE.ordinal()] == -1)
 			{
+				OUTER_LOOP: //label for break
 				for(int i = 0; i < tally.length; i++)
 				{
 					for(int j = 0; j < tally.length; j++)
@@ -220,9 +224,10 @@ public class ScorecardMaster {
 						if((tally[i] == 2 && tally[j] == 3) || (tally[i] == 3 && tally[j] == 2))
 						{
 							scores[ChoiceEnum.FULL_HOUSE.ordinal()] = 25; 
+							break OUTER_LOOP;
 						}
 						else {
-							//set Full House of a Kind score to 0 for now
+							//set Full House score to 0 for now
 							//this process will change when Player class is implemented
 							scores[ChoiceEnum.FULL_HOUSE.ordinal()] = 0;
 						}
@@ -230,7 +235,7 @@ public class ScorecardMaster {
 				}
 			}
 				
-			System.out.println("Found a full house: " + scores[ChoiceEnum.FULL_HOUSE.ordinal()]);
+			System.out.println("Full House score: " + scores[ChoiceEnum.FULL_HOUSE.ordinal()]);
 		}
 		else if(choice == ChoiceEnum.SMALL_STRAIGHT) 
 		{
