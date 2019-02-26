@@ -33,7 +33,7 @@ public class ScorecardMaster {
 		//count die faces
 		for(int i = 0; i < d.length; i++)
 		{
-			System.out.println("setting tally");
+			System.out.println("setting tally to face count...");
 			tallyDice[d[i].getFace()-1]++;
 		}
 		return tallyDice;
@@ -343,7 +343,9 @@ public class ScorecardMaster {
 	
 	//print the score card
 	public void printCard(String name) {
+		System.out.println("********************************");
 		System.out.println(name + "'S SCORECARD:");
+		System.out.println("--------------------------------");
 		System.out.println("SCORE TYPE: \t\t SCORE:");
 		System.out.println("********************************");
 		for(ChoiceEnum c : ChoiceEnum.values()) {
@@ -355,6 +357,8 @@ public class ScorecardMaster {
 				System.out.printf("%-10s \t\t  %-10d %n", c, scores[c.ordinal()]);
 			}
 		}
+		
+		System.out.println();
 	}
 	
 }

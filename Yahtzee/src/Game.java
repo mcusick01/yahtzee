@@ -17,7 +17,7 @@ public class Game {
 		//create players
 		for(int i=0; i<players.length; i++) {
 			
-			System.out.print("Enter player " + i + " name: " );
+			System.out.print("Enter player " + (i+1) + " name: " );
 			playerName = input.nextLine();
 			
 			players[i] = new Player(playerName);
@@ -29,15 +29,17 @@ public class Game {
 	}
 	
 	//play the game
-	public void playGame() {
+	public void playGame(int roundNum) {
 		
+		System.out.println();
+		System.out.println("~~~~ROUND #" + roundNum + "~~~~");
+		
+		//play until cards are filled
 		for(ChoiceEnum c : ChoiceEnum.values()) {
-			
 			for(int i=0; i<players.length; i++) {
-				players[i].takeTurn(cup, initRoll);
+				players[i].takeTurn(cup, initRoll, players[i].getPlayerName());
 			}
-		}
-		
+		}		
 	}
 	
 	
@@ -45,13 +47,27 @@ public class Game {
 		// TODO Auto-generated method stub
 		
 		Scanner in = new Scanner(System.in);
+		String playAgain = "";
+		int roundCounter = 0;
 		
-		System.out.println("How many players? " );
+		System.out.print("How many players? " );
 		int numPlayers = in.nextInt();
 		
 		Game g = new Game(numPlayers);
-		g.playGame();
+		do {
+			roundCounter++;
+			g.playGame(roundCounter);
+			in.nextLine();
+			
+			//calculate the total
+			System.out.println("here's where we'll show round totals...");
+			
+			System.out.print("Play another round? ");
+			playAgain = in.nextLine();
+		} while(playAgain.equalsIgnoreCase("y") && roundCounter < 6);
 
+		//declare the winner
+		System.out.println("Someone's the winner!");
 	}
 
 }

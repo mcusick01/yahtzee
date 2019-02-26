@@ -19,22 +19,48 @@ public class Player {
 		
 	}
 	
+	public String getPlayerName() {
+		return playerName;
+	}
+	
 	public void rollAgain(CupOfDice cup) {
 		
+		System.out.println();
 		System.out.println("Which dice do you want to keep?");
-		for(int i=0; i<cup.returnCup().length; i++) {	
-			System.out.print("DIE " + (i+1) + ": " + cup.returnCup()[i].getFace() + " ");
-			if(input.nextLine().equalsIgnoreCase("y")) {
-				keep[i] = true;
-			}
-			else {
-				keep[i] = false;
-			}
-			System.out.println();
+		//line 1 of output formatting
+		for(int i=0; i<cup.returnCup().length; i++)
+		{
+			System.out.print("DIE " + (i+1) + ": \t");
 		}
+		System.out.println();
+		
+		//line 2 of output formatting
+		for(int i=0; i<cup.returnCup().length; i++) {	
+			System.out.print(cup.returnCup()[i].getFace() + " \t");
+			
+		}
+		System.out.println();
+		
+		
+		String keep_or_roll = "";
+		do 
+		{
+			System.out.println("Type 'y' to hold a die, or 'n' to roll it again");
+			keep_or_roll = input.nextLine();
+			
+			for(int i=0; i<keep_or_roll.length(); i++) {
+				if(keep_or_roll.charAt(i) == 'y') {
+					keep[i] = true;
+				}
+				else {
+					keep[i] = false;
+				}
+			}
+			
+		} while(keep_or_roll.length() != 5);
 		
 		System.out.println();
-		cup.rollCup(keep);		
+		cup.rollCup(keep, playerName);		
 	}
 	
 	
@@ -92,11 +118,15 @@ public class Player {
 		
 	}
 	
-	public void takeTurn(CupOfDice cup, boolean[] hold) {
-		cup.rollCup(hold);
+	public void takeTurn(CupOfDice cup, boolean[] hold, String playerName) {
+
+		cup.rollCup(hold, playerName);
 		int rollCounter = 1;
 		do {
 			
+			System.out.print("You have " + (3-rollCounter) + " roll(s) left.");
+
+			input.nextLine();
 			System.out.print("Do you want to roll again? ");
 			if(input.nextLine().equalsIgnoreCase("y")) {
 				rollAgain(cup);
@@ -106,10 +136,9 @@ public class Player {
 				input.nextLine();
 				break;
 			}
-			
+						
 		} while(rollCounter < 3);
 		
-		System.out.println("rollCounter=" + rollCounter);
 		makeChoice(cup);
 	}
 	

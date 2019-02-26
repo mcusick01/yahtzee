@@ -25,18 +25,28 @@ public class CupOfDice {
 		return dice;
 	}
 	
-	public void rollCup(boolean[] hold) 
+	public void rollCup(boolean[] hold, String playerName) 
 	{
-		int i; 
-		for (i = 0; i < hold.length; i++)
+		System.out.println(playerName + " ROLLED: ");
+
+		//line 1 of output formatting
+		for(int i=0; i<hold.length; i++)
+		{
+			System.out.print("DIE " + (i+1) + ": \t");
+		}
+		System.out.println();
+		
+		//line 2 of output formatting
+		for (int i = 0; i < hold.length; i++)
 		{
 			if (hold[i] == false)
 			{
 				dice[i].roll();
 			}
 			
-			System.out.println("Die " + (i+1) + ": " + dice[i].getFace());
+			System.out.print(dice[i].getFace() + " \t");
 		}
+		System.out.println();
 	}
 	
 	public void getCup() 
