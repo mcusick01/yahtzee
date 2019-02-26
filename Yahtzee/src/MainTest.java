@@ -11,7 +11,7 @@ public class MainTest {
 	
 	CupOfDice cd = new CupOfDice(); 
 	boolean[] initRoll = {false, false, false, false, false}; //true means do not roll the die
-	cd.rollCup(initRoll); 
+//	cd.rollCup(initRoll); 
 	
 //	int[] testArray = {5, 5, 5, 4, 4};
 //	cd.hardCodedRoll(testArray);
@@ -19,22 +19,8 @@ public class MainTest {
 //	cd.getCup();
 //	System.out.println();
 	
-	Player p1 = new Player("abc", cd);
-	int rollCounter = 1;
-	do {
-		
-		System.out.print("Do you want to roll again? ");
-		if(input.nextLine().equalsIgnoreCase("y")) {
-			rollCounter++;
-			p1.rollAgain();
-		}	
-		else {
-			break;
-		}
-		
-	} while(rollCounter < 3);
-		
-	p1.makeChoice();
+	Player p1 = new Player("abc");
+	p1.takeTurn(cd, initRoll);
 	
 	//System.out.println(cd.getCup());
 	

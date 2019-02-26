@@ -26,18 +26,20 @@ public class ScorecardMaster {
 		//reset tally to 0
 		for(int i = 0; i < d.length; i++)
 		{
+			System.out.println("resetting tally to 0");
 			tallyDice[i] = 0;
 		}
 		
 		//count die faces
 		for(int i = 0; i < d.length; i++)
 		{
+			System.out.println("setting tally");
 			tallyDice[d[i].getFace()-1]++;
 		}
 		return tallyDice;
 	}
 	
-	public int verify(ChoiceEnum choice, Die[] d) 
+	public boolean verify(ChoiceEnum choice, Die[] d) 
 	{
 		int[] tally = countDice(d); // calling method to tally dice
 		System.out.print("Tally is: ");
@@ -60,8 +62,8 @@ public class ScorecardMaster {
 			}
 			else {
 				System.out.println("You already have a score for ones. Choose another score to write.");
+				return false;
 			}
-			System.out.println("Ones score: " + scores[ChoiceEnum.ONES.ordinal()]);
 		}
 		else if(choice == choice.TWOS) {
 			if(scores[ChoiceEnum.TWOS.ordinal()] == -1)
@@ -73,7 +75,10 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.TWOS.ordinal()] = 0;
 				}
 			}
-			System.out.println("Twos score: " + scores[ChoiceEnum.TWOS.ordinal()]);
+			else {
+				System.out.println("You already have a score for twos. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == choice.THREES) {
 			if(scores[ChoiceEnum.THREES.ordinal()] == -1)
@@ -85,7 +90,10 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.THREES.ordinal()] = 0;
 				}
 			}
-			System.out.println("Threes score: " + scores[ChoiceEnum.THREES.ordinal()]);
+			else {
+				System.out.println("You already have a score for threes. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == choice.FOURS) {
 			if(scores[ChoiceEnum.FOURS.ordinal()] == -1)
@@ -97,7 +105,10 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.FOURS.ordinal()] = 0;
 				}
 			}
-			System.out.println("Fours score: " + scores[ChoiceEnum.FOURS.ordinal()]);
+			else {
+				System.out.println("You already have a score for fours. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == choice.FIVES) {
 			if(scores[ChoiceEnum.FIVES.ordinal()] == -1)
@@ -109,7 +120,10 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.FIVES.ordinal()] = 0;
 				}
 			}
-			System.out.println("Fives score: " + scores[ChoiceEnum.FIVES.ordinal()]);
+			else {
+				System.out.println("You already have a score for fives. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == choice.SIXES) {
 			if(scores[ChoiceEnum.SIXES.ordinal()] == -1)
@@ -121,7 +135,10 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.SIXES.ordinal()] = 0;
 				}
 			}
-			System.out.println("Sixes score: " + scores[ChoiceEnum.SIXES.ordinal()]);
+			else {
+				System.out.println("You already have a score for sixes. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == choice.THREE_KIND)
 		{
@@ -149,8 +166,10 @@ public class ScorecardMaster {
 					}
 				}
 			}
-			
-			System.out.println("Three of a kind score: " + scores[ChoiceEnum.THREE_KIND.ordinal()]);
+			else {
+				System.out.println("You already have a score for three of a kind. Choose another score to write.");
+				return false;
+			}
 
 		}
 		else if(choice == choice.FOUR_KIND)
@@ -179,8 +198,10 @@ public class ScorecardMaster {
 					}
 				}
 			}
-			
-			System.out.println("Four of a kind score: " + scores[ChoiceEnum.FOUR_KIND.ordinal()]);
+			else {
+				System.out.println("You already have a score for four of a kind. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == ChoiceEnum.YAHTZEE) 
 		{
@@ -208,8 +229,6 @@ public class ScorecardMaster {
 				}
 			
 			}
-			
-			System.out.println("Yahtzee score: " + scores[ChoiceEnum.YAHTZEE.ordinal()]);
 		}
 		else if(choice == choice.FULL_HOUSE)
 		{
@@ -234,65 +253,75 @@ public class ScorecardMaster {
 					}
 				}
 			}
-				
-			System.out.println("Full House score: " + scores[ChoiceEnum.FULL_HOUSE.ordinal()]);
+			else {
+				System.out.println("You already have a score for full house. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == ChoiceEnum.SMALL_STRAIGHT) 
 		{
-			int counter = 0; 
-			//Small straight is a sequence of 4 (1234, 2345, or 3456)
-			for(int i = 0; i < tally.length; i++)
-			{
-				if(tally[i] >= 1)
+			if(scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] == -1) {
+				
+				int counter = 0; 
+				//Small straight is a sequence of 4 (1234, 2345, or 3456)
+				for(int i = 0; i < tally.length; i++)
 				{
-					counter++;
-					System.out.println(counter);
-					//need at least 4 unique die (tally==1) to make a small straight
-					if(counter > 3)
+					if(tally[i] >= 1)
 					{
-						scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 30; 
+						counter++;
+						System.out.println(counter);
+						//need at least 4 unique die (tally==1) to make a small straight
+						if(counter > 3)
+						{
+							scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 30; 
+						}
+						//if counter is not > 3 then keep looping through tally
 					}
-					//if counter is not > 3 then keep looping through tally
-				}
-				else {
-					//this handles making sure the unique numbers are a valid sequence
-					counter = 0;
-					scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 0; 
+					else {
+						//this handles making sure the unique numbers are a valid sequence
+						counter = 0;
+						scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 0; 
+					}
 				}
 			}
-			
-			
-			System.out.println("Small straight score: " + scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()]);
+			else {
+				System.out.println("You already have a score for small straight. Choose another score to write.");
+				return false;
+			}
 		}
 		else if(choice == ChoiceEnum.LARGE_STRAIGHT) 
 		{
-			int counter = 0; 
-			//Large straight is a sequence of 5 (12345 or 23456)
-			for(int i = 0; i < tally.length; i++)
-			{
-				//need 5 unique die (tally==1) to make a lg straight
-				if(tally[i] == 1)
+			if(scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] == -1) {
+				int counter = 0; 
+				//Large straight is a sequence of 5 (12345 or 23456)
+				for(int i = 0; i < tally.length; i++)
 				{
-					counter++;
-					System.out.println(counter);
+					//need 5 unique die (tally==1) to make a lg straight
+					if(tally[i] == 1)
+					{
+						counter++;
+						System.out.println(counter);
+					}
 				}
-			}
-			if(counter == 5)
-			{
-				//there must be either no six or no one for the dice to be a valid sequence
-				if(tally[0] == 0 || tally[5] == 0)
+				if(counter == 5)
 				{
-					scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 40; 
+					//there must be either no six or no one for the dice to be a valid sequence
+					if(tally[0] == 0 || tally[5] == 0)
+					{
+						scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 40; 
+					}
+					else {
+						scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 0;
+					}
 				}
 				else {
 					scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 0;
 				}
 			}
 			else {
-				scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()] = 0;
+				System.out.println("You already have a score for large straight. Choose another score to write.");
+				return false;
 			}
-			
-			System.out.println("Large straight score: " + scores[ChoiceEnum.LARGE_STRAIGHT.ordinal()]);
 		}
 		else if(choice == ChoiceEnum.CHANCE) {
 			if(scores[ChoiceEnum.CHANCE.ordinal()] == -1) {
@@ -304,15 +333,17 @@ public class ScorecardMaster {
 					scores[ChoiceEnum.CHANCE.ordinal()] += tally[i] * (i+1); 	
 				}
 			}
-			System.out.println("Chance score: " + scores[ChoiceEnum.CHANCE.ordinal()]);
+			else {
+				System.out.println("You already have a score for chance. Choose another score to write.");
+				return false;
+			}
 		}
-		
-		//return the score that was written
-		return scores[choice.ordinal()];
+		return true;
 	}
 	
 	//print the score card
-	public void printCard() {
+	public void printCard(String name) {
+		System.out.println(name + "'S SCORECARD:");
 		System.out.println("SCORE TYPE: \t\t SCORE:");
 		System.out.println("********************************");
 		for(ChoiceEnum c : ChoiceEnum.values()) {
