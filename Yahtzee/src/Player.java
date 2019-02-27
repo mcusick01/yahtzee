@@ -69,6 +69,19 @@ public class Player {
 		
 		do {
 			System.out.println("Which score would you like to write to?");
+			System.out.println("1: ONES");
+			System.out.println("2: TWOS");
+			System.out.println("3: THREES");
+			System.out.println("4: FOURS");
+			System.out.println("5: FIVES");
+			System.out.println("6: SIXES");
+			System.out.println("7: THREE OF A KIND");
+			System.out.println("8: FOUR OF A KIND");
+			System.out.println("9: FULL HOUSE");
+			System.out.println("10: SMALL STRAIGHT");
+			System.out.println("11: LARGE STRAIGHT");
+			System.out.println("12: YAHTZEE");
+			System.out.println("13: CHANCE");
 			int userChoice = input.nextInt();
 			
 			
