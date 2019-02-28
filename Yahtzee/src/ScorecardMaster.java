@@ -7,17 +7,22 @@ public class ScorecardMaster {
 	private int yahtzee_bonus;
 	
 	//sum of round totals
-	private int finalscore;
+	int[] roundscores;
+	
+	private int finalscore; 
 	
 	ScorecardMaster() {
 		
-		
-		finalscore = 0;
 		 
 		//initialize all score values as -1 because 0 is a valid score
 		scores = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 		 
 		tallyDice = new int[]{0, 0, 0, 0, 0, 0};
+		
+		roundscores = new int[] {0, 0, 0, 0, 0, 0};
+		
+		finalscore = 0; 
+		
 	}
 	
 	// method to count the distinct faces 
@@ -339,6 +344,34 @@ public class ScorecardMaster {
 			}
 		}
 		return true;
+	}
+	
+	public int calculateRoundScore(int roundNum)
+	{
+		for(int i = 0; i < scores.length; i++)
+		{
+			roundscores[roundNum] += scores[i];
+		}
+		int upperTotal = 0;
+		for(int j = 0; j < 5; j++)
+		{
+			upperTotal += scores[j];
+		}
+		if(upperTotal >= 63)
+		{
+			roundscores[roundNum] += 35; 
+		}
+		return roundscores[roundNum];
+	}
+	
+	public int caclulateFinalScores()
+	{
+		for(int i = 0; i < roundscores.length; i++)
+		{
+			finalscore += roundscores[i];
+		}
+		return finalscore; 
+		
 	}
 	
 	//print the score card

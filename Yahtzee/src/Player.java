@@ -155,5 +155,15 @@ public class Player {
 		makeChoice(cup);
 	}
 	
+	public int getRoundScore(int roundNum)
+	{
+		return scoresheet.calculateRoundScore(roundNum);
+	}
+	
+	public int getFinalScore()
+	{
+		return scoresheet.caclulateFinalScores();
+	}
+	
 	
 }
