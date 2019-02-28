@@ -35,18 +35,12 @@ public class Game {
 		System.out.println("~~~~ROUND #" + roundNum + "~~~~");
 		
 		//play until cards are filled
-//		for(ChoiceEnum c : ChoiceEnum.values()) {
-//			for(int i=0; i<players.length; i++) {
-//				players[i].takeTurn(cup, initRoll, players[i].getPlayerName());
-//			}
-//		}
-		
-		for(int k = 0; k < 2; k++)
-		{
+		for(ChoiceEnum c : ChoiceEnum.values()) {
 			for(int i=0; i<players.length; i++) {
 				players[i].takeTurn(cup, initRoll, players[i].getPlayerName());
 			}
 		}
+		
 
 		for(int j = 0; j < players.length; j++)
 		{
@@ -61,16 +55,15 @@ public class Game {
 		{
 			System.out.println(players[i].getPlayerName() + "'s final score is " + ":" + players[i].getFinalScore());
 		}
-		Player winner = players[0];
+		Player winner = players[0]; 
 		for(int j = 0; j < players.length; j++)
 		{
-			if(players[j].getFinalScore() > players[j+1].getFinalScore())
+			if(players[j].getFinalScore() > winner.getFinalScore())
 			{
 				winner = players[j];
 			}
-			
 		}
-		System.out.println("The winner is: " + winner.getPlayerName() + "!");
+		System.out.println("The winner is: " + winner.getPlayerName());
 	}
 	
 	public static void main(String[] args) {
