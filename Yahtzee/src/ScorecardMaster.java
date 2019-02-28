@@ -24,7 +24,7 @@ public class ScorecardMaster {
 	public int[] countDice(Die[] d)
 	{
 		//reset tally to 0
-		for(int i = 0; i < d.length; i++)
+		for(int i = 0; i < tallyDice.length; i++)
 		{
 			System.out.println("resetting tally to 0");
 			tallyDice[i] = 0;
