@@ -346,6 +346,7 @@ public class ScorecardMaster {
 		return true;
 	}
 	
+	// calculate the score for each round that is played 
 	public int calculateRoundScore(int roundNum)
 	{
 		for(int i = 0; i < scores.length; i++)
@@ -364,6 +365,7 @@ public class ScorecardMaster {
 		return roundscores[roundNum];
 	}
 	
+	// calculate the final score after all rounds are played 
 	public int caclulateFinalScores()
 	{
 		for(int i = 0; i < roundscores.length; i++)

@@ -41,7 +41,7 @@ public class Game {
 			}
 		}
 		
-
+		//display each player's total for each round 
 		for(int j = 0; j < players.length; j++)
 		{
 			System.out.println(players[j].getPlayerName() + "'s total for round " + roundNum + ": " + players[j].getRoundScore(roundNum));
@@ -49,6 +49,7 @@ public class Game {
 		
 	}
 	
+	// display the final score after all rounds are played
 	public void displayFinalScore() 
 	{
 		for(int i = 0; i < players.length; i++)

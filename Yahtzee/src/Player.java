@@ -155,11 +155,13 @@ public class Player {
 		makeChoice(cup);
 	}
 	
+	// retrieve score for each round played
 	public int getRoundScore(int roundNum)
 	{
 		return scoresheet.calculateRoundScore(roundNum);
 	}
 	
+	// retrieve the final calculate score
 	public int getFinalScore()
 	{
 		return scoresheet.caclulateFinalScores();
