@@ -34,21 +34,21 @@ public class Game {
 		System.out.println();
 		System.out.println("~~~~ROUND #" + roundNum + "~~~~");
 		
-		//play until cards are filled
-//		for(ChoiceEnum c : ChoiceEnum.values()) {
-//			for(int i=0; i<players.length; i++) {
-//				players[i].takeTurn(cup, initRoll, players[i].getPlayerName());
-//			}
-//		}
-		
-		//speed round for testing
-		for(int j=0; j<2; j++)
-		{
+		// play until cards are filled
+		for(ChoiceEnum c : ChoiceEnum.values()) {
 			for(int i=0; i<players.length; i++) {
 				players[i].takeTurn(cup, initRoll, players[i].getPlayerName());
 			}
 		}
 		
+//		//speed round for testing
+//		for(int j=0; j<2; j++)
+//		{
+//			for(int i=0; i<players.length; i++) {
+//				players[i].takeTurn(cup, initRoll, players[i].getPlayerName());
+//			}
+//		}
+//		
 		//display each player's total for each round 
 		for(int j = 0; j < players.length; j++)
 		{

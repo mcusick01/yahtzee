@@ -1,5 +1,5 @@
 
-public class ScorecardMaster {
+public class Scorecard {
 	
 	int[] scores; 
 	int[] tallyDice;
@@ -11,7 +11,7 @@ public class ScorecardMaster {
 	
 	private int finalscore; 
 	
-	ScorecardMaster() {
+	Scorecard() {
 		
 		 
 		//initialize all score values as -1 because 0 is a valid score

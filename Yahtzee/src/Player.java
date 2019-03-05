@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Player {
 	
 	String playerName;
-	ScorecardMaster scoresheet;
+	Scorecard scoresheet;
 	ChoiceEnum choice;
 	boolean[] keep;
 	Scanner input = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class Player {
 	
 
 	Player(String n) {
-		scoresheet = new ScorecardMaster();
+		scoresheet = new Scorecard();
 		playerName = n;
 		choice = null;
 		keep = new boolean[5];
