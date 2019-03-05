@@ -31,14 +31,12 @@ public class ScorecardMaster {
 		//reset tally to 0
 		for(int i = 0; i < tallyDice.length; i++)
 		{
-			System.out.println("resetting tally to 0");
 			tallyDice[i] = 0;
 		}
 		
 		//count die faces
 		for(int i = 0; i < d.length; i++)
 		{
-			System.out.println("setting tally to face count...");
 			tallyDice[d[i].getFace()-1]++;
 		}
 		return tallyDice;
@@ -47,12 +45,12 @@ public class ScorecardMaster {
 	public boolean verify(ChoiceEnum choice, Die[] d) 
 	{
 		int[] tally = countDice(d); // calling method to tally dice
-		System.out.print("Tally is: ");
-		for(int i=0; i<tally.length; i++)
-		{
-			System.out.print(tally[i] + " ");
-		}
-		System.out.println();
+//		System.out.print("Tally is: ");
+//		for(int i=0; i<tally.length; i++)
+//		{
+//			System.out.print(tally[i] + " ");
+//		}
+//		System.out.println();
 		
 		
 		if(choice == choice.ONES) {
@@ -157,7 +155,7 @@ public class ScorecardMaster {
 					{
 						//if there is three of a kind, calculate score by totaling dice faces
 						scores[ChoiceEnum.THREE_KIND.ordinal()] = 0;
-						System.out.println("You have three of a kind!");
+//						System.out.println("You have three of a kind!");
 						for(int j = 0; j < tally.length; j++)
 						{
 							scores[ChoiceEnum.THREE_KIND.ordinal()] += tally[j] * (j+1);
@@ -189,7 +187,7 @@ public class ScorecardMaster {
 					{
 						//if there is three of a kind, calculate score by totaling dice faces
 						scores[ChoiceEnum.FOUR_KIND.ordinal()] = 0;
-						System.out.println("You have four of a kind!");
+//						System.out.println("You have four of a kind!");
 						for(int j = 0; j < tally.length; j++)
 						{
 							scores[ChoiceEnum.FOUR_KIND.ordinal()] += tally[j] * (j+1);
@@ -274,11 +272,12 @@ public class ScorecardMaster {
 					if(tally[i] >= 1)
 					{
 						counter++;
-						System.out.println(counter);
+//						System.out.println(counter);
 						//need at least 4 unique die (tally==1) to make a small straight
 						if(counter > 3)
 						{
 							scores[ChoiceEnum.SMALL_STRAIGHT.ordinal()] = 30; 
+							return true;
 						}
 						//if counter is not > 3 then keep looping through tally
 					}
@@ -305,7 +304,7 @@ public class ScorecardMaster {
 					if(tally[i] == 1)
 					{
 						counter++;
-						System.out.println(counter);
+//						System.out.println(counter);
 					}
 				}
 				if(counter == 5)
@@ -393,7 +392,7 @@ public class ScorecardMaster {
 			}
 		}
 		
-		System.out.println();
+//		System.out.println();
 	}
 	
 }
